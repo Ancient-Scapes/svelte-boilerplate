@@ -2,10 +2,6 @@
   export let name
 </script>
 
-<style>
-  h1 {
-    color: purple;
-  }
-</style>
-
 <h1>Hello {name}!</h1>
+
+<style src="./style.scss" lang="scss"></style>
