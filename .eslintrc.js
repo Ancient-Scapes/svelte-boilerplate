@@ -20,6 +20,7 @@ module.exports = {
     'no-invalid-this': 1,
     semi: [0, 'never'],
     indent: ['error', 2],
+    "object-curly-spacing": [2, 'always'],
     'prettier/prettier': 1
   }
 }
