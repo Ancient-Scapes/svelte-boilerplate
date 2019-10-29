@@ -8,8 +8,12 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "webpack-dev-server --content-base dist",
-    "lint": "eslint src/*.js src/*.svelte",
-    "lint:prettier": "prettier --write src/*.{js,scss,svelte}"
+    "lint": "npm-run-all -c lint:*",
+    "lint:eslint": "eslint src/*.js",
+    "lint:prettier": "prettier --check src/*.{js,scss}",
+    "format": "npm-run-all -c format:*",
+    "format:eslint": "eslint --fix src/*.js",
+    "format:prettier": "prettier --write src/*.{js,scss,svelte}"
   },
   "dependencies": {},
   "devDependencies": {
@@ -21,6 +25,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-svelte3": "^2.7.3",
     "mini-css-extract-plugin": "^0.6.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
     "prettier-plugin-svelte": "^0.7.0",
     "serve": "^11.0.0",
