@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "webpack-dev-server --content-base dist",
     "lint": "eslint src/*.js src/*.svelte",
-    "lint:prettier": "prettier --write src/*.{js,css,scss,svelte}"
+    "lint:prettier": "prettier --write src/*.{js,scss,svelte}"
   },
   "dependencies": {},
   "devDependencies": {
