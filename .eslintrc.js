@@ -7,18 +7,19 @@ module.exports = {
     es6: true,
     browser: true
   },
-  plugins: [ 'svelte3' ],
+  plugins: ['prettier', 'svelte3'],
   overrides: [
     {
       files: ['**/*.svelte'],
       processor: 'svelte3/svelte3'
     }
   ],
-  extends: 'google',
+  extends: ['prettier', 'google'],
   rules: {
     'comma-dangle' : [2, 'never'],
     'no-invalid-this': 1,
     semi: [0, 'never'],
-    indent: ['error', 2]
+    indent: ['error', 2],
+    'prettier/prettier': 1
   }
 }

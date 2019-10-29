@@ -8,7 +8,8 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "webpack-dev-server --content-base dist",
-    "lint": "eslint src/*.js src/*.svelte"
+    "lint": "eslint src/*.js src/*.svelte",
+    "lint:prettier": "prettier --write src/*.{js,css,scss,svelte}"
   },
   "dependencies": {},
   "devDependencies": {
@@ -16,8 +17,12 @@
     "css-loader": "^2.1.1",
     "eslint": "^6.6.0",
     "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-svelte3": "^2.7.3",
     "mini-css-extract-plugin": "^0.6.0",
+    "prettier": "^1.18.2",
+    "prettier-plugin-svelte": "^0.7.0",
     "serve": "^11.0.0",
     "style-loader": "^0.23.1",
     "svelte": "3.2.0",
