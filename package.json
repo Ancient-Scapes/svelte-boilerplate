@@ -29,6 +29,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-svelte3": "^2.7.3",
     "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.13.0",
     "npm-run-all": "^4.1.5",
@@ -52,7 +53,12 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn lint"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{svelte,css,scss,js}": [
+      "yarn lint"
+    ]
   }
 }
