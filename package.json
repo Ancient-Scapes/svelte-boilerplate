@@ -21,6 +21,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "autoprefixer": "^9.7.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "eslint": "^6.6.0",
@@ -33,6 +34,7 @@
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.13.0",
     "npm-run-all": "^4.1.5",
+    "postcss": "^7.0.21",
     "prettier": "^1.18.2",
     "prettier-plugin-svelte": "^0.7.0",
     "serve": "^11.0.0",
@@ -57,8 +59,14 @@
     }
   },
   "lint-staged": {
-    "*.{svelte,css,scss,js}": [
-      "yarn lint"
+    "*.{svelte}": [
+      "yarn lint:prettier"
+    ],
+    "*.{js}": [
+      "yarn lint:eslint"
+    ],
+    "*.{scss}": [
+      "yarn lint:stylelint"
     ]
   }
 }

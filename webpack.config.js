@@ -27,7 +27,16 @@ module.exports = {
         use: {
           loader: 'svelte-loader',
           options: {
-            preprocess: require('svelte-preprocess')({ scss: true }),
+            preprocess: require('svelte-preprocess')({
+              scss: true,
+              postcss: ({
+                plugins: [
+                  require('autoprefixer')({
+                    browsers: 'last 2 versions'
+                  })
+                ]
+              })
+            }),
             emitCss: true,
             hotReload: true
           }
