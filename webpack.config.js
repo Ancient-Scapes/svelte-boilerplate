@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
 const path = require('path')
 
 const mode = process.env.NODE_ENV || 'development'
@@ -6,7 +7,8 @@ const prod = mode === 'production'
 
 module.exports = {
   entry: {
-    bundle: ['./src/main.js']
+    bundle: './src/main.js',
+    global: './src/scss/main.scss'
   },
   resolve: {
     alias: {
@@ -29,11 +31,9 @@ module.exports = {
           options: {
             preprocess: require('svelte-preprocess')({
               scss: true,
-              postcss: ({
-                plugins: [
-                  require('autoprefixer')
-                ]
-              })
+              postcss: {
+                plugins: [require('autoprefixer')]
+              }
             }),
             emitCss: true,
             hotReload: true
@@ -50,6 +50,14 @@ module.exports = {
           prod ? MiniCssExtractPlugin.loader : 'style-loader',
           'css-loader'
         ]
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' }
+        ]
       }
     ]
   },
@@ -57,7 +65,8 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css'
-    })
+    }),
+    new FixStyleOnlyEntriesPlugin()
   ],
   devtool: prod ? false : 'source-map'
 }
